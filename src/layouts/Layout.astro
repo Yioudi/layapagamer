@@ -2,6 +2,7 @@
 // src/layouts/Layout.astro
 import '../styles/global.css';
 import Footer from '../components/Footer.astro';
+import { UserNav } from '../components/UserNav';
 
 interface Props {
   title?: string;
@@ -25,40 +26,30 @@ const {
   </head>
   <body class="bg-[#09090b] text-zinc-100 min-h-screen flex flex-col antialiased selection:bg-emerald-500 selection:text-black">
     
-   <!-- Navbar Global con Logo y Título Pegado -->
-<header class="sticky top-0 z-50 w-full backdrop-blur-md bg-[#09090b]/90 border-b border-zinc-800/80">
-  <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-    
-    <!-- Enlace y Logo -->
-    <a href="/" class="flex items-center gap-2.5 group">
-      <img 
-        src="/logo.png" 
-        alt="Logo" 
-        class="h-8 w-auto object-contain rounded-md"
-        onerror="this.style.display='none'"
-      />
-      <!-- Título con espaciado natural único (sin doble gap) -->
-      <span class="text-xl font-black tracking-tight text-white">
-        LA YAPA <span class="text-emerald-400 group-hover:text-emerald-300 transition-colors">GAMER</span>
-      </span>
-    </a>
+    <!-- Navbar Global -->
+    <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-[#09090b]/90 border-b border-zinc-800/80">
+      <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+        
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-2.5 group">
+          <img 
+            src="/logo.png" 
+            alt="Logo" 
+            class="h-8 w-auto object-contain rounded-md"
+            onerror="this.style.display='none'"
+          />
+          <span class="text-xl font-black tracking-tight text-white">
+            LA YAPA <span class="text-emerald-400 group-hover:text-emerald-300 transition-colors">GAMER</span>
+          </span>
+        </a>
 
-    <!-- Acciones -->
-    <div class="flex items-center gap-3">
-      <button 
-        id="loginBtn"
-        class="bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-bold px-4 py-2 rounded-xl transition-all border border-zinc-700/60 hover:border-zinc-500"
-      >
-        Iniciar Sesión
-      </button>
-    </div>
-  </div>
-</header>
+        <!-- Componente de Usuario / Autenticación -->
+        <UserNav client:load />
+      </div>
+    </header>
 
-    <!-- Contenido -->
     <slot />
 
-    <!-- Footer -->
     <Footer />
 
   </body>

@@ -54,7 +54,7 @@ export const DealCard: React.FC<Props> = ({ game }) => {
         ) : cheapestStore && cheapestStore.savings > 0 ? (
           <div className="absolute top-3 right-3 bg-emerald-500 text-black font-black text-xs px-2.5 py-1 rounded-md shadow-lg flex items-center gap-1">
             <Sparkles size={11} strokeWidth={2.5} />
-            <span>-{cheapestStore.savings}% YAPA</span>
+            <span>-{cheapestStore.savings}% OFF</span>
           </div>
         ) : null}
       </div>
