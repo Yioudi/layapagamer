@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+}
+
+/* Efecto de letras vivas holográficas */
+@keyframes fluid-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
+}
+
+.text-alive {
+  background: linear-gradient(
+    120deg,
+    #10b981 0%,
+    #34d399 25%,
+    #38bdf8 50%,
+    #a855f7 75%,
+    #10b981 100%
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fluid-gradient 5s ease infinite;
+  filter: drop-shadow(0 0 14px rgba(52, 211, 153, 0.4));
+  display: inline-block;
+}
+
+.title-float {
+  animation: gentle-float 4s ease-in-out infinite;
+}

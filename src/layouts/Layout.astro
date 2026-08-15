@@ -1,0 +1,65 @@
+---
+// src/layouts/Layout.astro
+import '../styles/global.css';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "La Yapa Gamer | Comparador de Precios y Ofertas de Videojuegos",
+  description = "Compara precios de videojuegos en Steam, Epic Games, GOG y más en tiempo real en Soles y Dólares."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="dark bg-[#09090b]">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-[#09090b] text-zinc-100 min-h-screen flex flex-col antialiased selection:bg-emerald-500 selection:text-black">
+    
+   <!-- Navbar Global con Logo y Título Pegado -->
+<header class="sticky top-0 z-50 w-full backdrop-blur-md bg-[#09090b]/90 border-b border-zinc-800/80">
+  <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+    
+    <!-- Enlace y Logo -->
+    <a href="/" class="flex items-center gap-2.5 group">
+      <img 
+        src="/logo.png" 
+        alt="Logo" 
+        class="h-8 w-auto object-contain rounded-md"
+        onerror="this.style.display='none'"
+      />
+      <!-- Título con espaciado natural único (sin doble gap) -->
+      <span class="text-xl font-black tracking-tight text-white">
+        LA YAPA <span class="text-emerald-400 group-hover:text-emerald-300 transition-colors">GAMER</span>
+      </span>
+    </a>
+
+    <!-- Acciones -->
+    <div class="flex items-center gap-3">
+      <button 
+        id="loginBtn"
+        class="bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-bold px-4 py-2 rounded-xl transition-all border border-zinc-700/60 hover:border-zinc-500"
+      >
+        Iniciar Sesión
+      </button>
+    </div>
+  </div>
+</header>
+
+    <!-- Contenido -->
+    <slot />
+
+    <!-- Footer -->
+    <Footer />
+
+  </body>
+</html>

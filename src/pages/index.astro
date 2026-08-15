@@ -1,0 +1,49 @@
+---
+// src/pages/index.astro
+import Layout from '../layouts/Layout.astro';
+import { SearchGames } from '../components/SearchGames';
+import { HomeDeals } from '../components/HomeDeals';
+---
+
+<Layout title="La Yapa Gamer | Comparador de Precios y Ofertas">
+  <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-16">
+    
+    <!-- 1. Hero Header Centrado -->
+    <section class="text-center max-w-3xl mx-auto space-y-4">
+      <div class="inline-flex items-center gap-2 bg-emerald-950/40 border border-emerald-500/30 text-emerald-400 text-xs font-semibold px-3 py-1.5 rounded-full">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        Comparador en tiempo real de Steam, Epic, GOG y más
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-tight title-float">
+        Encuentra tu juego al <br class="hidden sm:inline" />
+        <span class="text-alive font-black">
+          precio más bajo
+        </span>
+      </h1>
+
+      <p class="text-zinc-400 text-xs sm:text-base max-w-xl mx-auto leading-relaxed">
+        Compara todas las ediciones oficiales en Soles peruanos y Dólares antes de comprar.
+      </p>
+    </section>
+
+    <!-- 2. Buscador en Vivo y Grid de Resultados a Ancho Completo -->
+    <section class="w-full">
+      <SearchGames client:load />
+    </section>
+
+    <!-- 3. Ofertas del Día -->
+    <section class="space-y-6 pt-6 border-t border-zinc-900/60">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="text-xl"></span>
+          <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Ofertas Destacadas</h2>
+        </div>
+        <span class="text-xs text-zinc-500">Actualizado cada hora</span>
+      </div>
+
+      <HomeDeals client:load />
+    </section>
+
+  </main>
+</Layout>
