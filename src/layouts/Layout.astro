@@ -10,8 +10,8 @@ interface Props {
 }
 
 const { 
-  title = "La Yapa Gamer | Comparador de Precios y Ofertas de Videojuegos",
-  description = "Compara precios de videojuegos en Steam, Epic Games, GOG y más en tiempo real en Soles y Dólares."
+  title = "La Yapa Gamer | Comparador de Precios y Ofertas",
+  description = "Compara precios oficiales de videojuegos en tiempo real."
 } = Astro.props;
 ---
 
@@ -19,38 +19,30 @@ const {
 <html lang="es" class="dark bg-[#09090b]">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
-  <body class="bg-[#09090b] text-zinc-100 min-h-screen flex flex-col antialiased selection:bg-emerald-500 selection:text-black">
+  <body class="bg-[#09090b] text-zinc-100 min-h-screen flex flex-col antialiased">
     
-    <!-- Navbar Global -->
     <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-[#09090b]/90 border-b border-zinc-800/80">
-      <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-        
-        <!-- Logo -->
-        <a href="/" class="flex items-center gap-2.5 group">
-          <img 
-            src="/logo.png" 
-            alt="Logo" 
-            class="h-8 w-auto object-contain rounded-md"
-            onerror="this.style.display='none'"
-          />
-          <span class="text-xl font-black tracking-tight text-white">
-            LA YAPA <span class="text-emerald-400 group-hover:text-emerald-300 transition-colors">GAMER</span>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2.5">
+          <img src="/logo.png" alt="Logo" class="h-8 w-auto rounded-md" onerror="this.style.display='none'" />
+          <span class="text-lg sm:text-xl font-black text-white">
+            LA YAPA <span class="text-emerald-400">GAMER</span>
           </span>
         </a>
 
-        <!-- Componente de Usuario / Autenticación -->
-        <UserNav client:load />
+        <UserNav client:only="react" />
       </div>
     </header>
 
-    <slot />
+    <div class="flex-1 w-full">
+      <slot />
+    </div>
 
     <Footer />
-
   </body>
 </html>
