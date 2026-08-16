@@ -1,25 +1,36 @@
 ---
-import '../styles/global.css';
-import Footer from '../components/Footer.astro';
+// src/pages/privacidad.astro
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="es" class="bg-zinc-950 text-zinc-200">
-  <head>
-    <title>Política de Privacidad | LaYapaGamer</title>
-  </head>
-  <body class="max-w-4xl mx-auto px-4 py-12">
-    <h1 class="text-3xl font-bold text-white mb-6">Política de Privacidad</h1>
-    
-    <div class="space-y-4 text-sm leading-relaxed text-zinc-400">
-      <p>En <strong>LaYapaGamer</strong> respetamos la privacidad de nuestros usuarios y protegemos sus datos personales.</p>
-
-      <h2 class="text-lg font-bold text-white mt-6">1. Datos Recopilados</h2>
-      <p>Recopilamos únicamente la información necesaria para el inicio de sesión (correo electrónico) cuando el usuario decide registrarse voluntariamente en la plataforma.</p>
-
-      <h2 class="text-lg font-bold text-white mt-6">2. Uso de Cookies</h2>
-      <p>Utilizamos cookies técnicas y de rendimiento para recordar las preferencias de región, país y mantener activa la sesión del usuario.</p>
+<Layout title="Política de Privacidad | La Yapa Gamer">
+  <main class="w-full max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-8">
+    <div class="border-b border-zinc-800 pb-6">
+      <h1 class="text-2xl sm:text-3xl font-black text-white tracking-tight">Política de Privacidad</h1>
+      <p class="text-xs sm:text-sm text-zinc-400 mt-2">Última actualización: Agosto 2026</p>
     </div>
 
-    <Footer />
-  </body>
-</html>
+    <section class="space-y-6 text-xs sm:text-sm text-zinc-300 leading-relaxed">
+      <div class="space-y-2 bg-[#111114] p-6 rounded-2xl border border-zinc-800/80">
+        <h2 class="text-sm sm:text-base font-bold text-white">1. Recopilación y Uso de Datos</h2>
+        <p class="text-zinc-400">
+          La Yapa Gamer recopila únicamente la dirección de correo electrónico proporcionada de manera voluntaria durante el registro para gestionar sesiones de usuario, guardar títulos en seguimiento y enviar notificaciones de precio.
+        </p>
+      </div>
+
+      <div class="space-y-2 bg-[#111114] p-6 rounded-2xl border border-zinc-800/80">
+        <h2 class="text-sm sm:text-base font-bold text-white">2. Seguridad de Credenciales</h2>
+        <p class="text-zinc-400">
+          La autenticación y gestión de datos se procesa de forma segura mediante Supabase. Las contraseñas se almacenan cifradas y nunca son legibles por administradores del sitio.
+        </p>
+      </div>
+
+      <div class="space-y-2 bg-[#111114] p-6 rounded-2xl border border-zinc-800/80">
+        <h2 class="text-sm sm:text-base font-bold text-white">3. Almacenamiento Local</h2>
+        <p class="text-zinc-400">
+          Se utilizan tokens técnicos de sesión y cookies no intrusivas estrictamente para persistir el inicio de sesión y la preferencia de región en el comparador.
+        </p>
+      </div>
+    </section>
+  </main>
+</Layout>

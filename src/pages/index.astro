@@ -4,16 +4,17 @@ export const prerender = true;
 
 import Layout from '../layouts/Layout.astro';
 import { SearchGames } from '../components/SearchGames';
+import { HomeDeals } from '../components/HomeDeals';
 ---
 
 <Layout title="La Yapa Gamer | Comparador de Precios y Ofertas de Videojuegos">
-  <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+  <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
     
     <!-- Hero Header -->
-    <section class="text-center max-w-3xl mx-auto space-y-4">
-      <div class="inline-flex items-center gap-2 bg-emerald-950/40 border border-emerald-500/30 text-emerald-400 text-xs font-semibold px-3 py-1.5 rounded-full">
+    <section class="text-center max-w-3xl mx-auto space-y-4 pt-4">
+      <div class="inline-flex items-center gap-2 bg-emerald-950/40 border border-emerald-500/30 text-emerald-400 text-xs font-semibold px-3.5 py-1.5 rounded-full">
         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        Comparador de precios en tiempo real
+        <span>Comparador en tiempo real</span>
       </div>
 
       <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-tight">
@@ -22,13 +23,29 @@ import { SearchGames } from '../components/SearchGames';
       </h1>
 
       <p class="text-zinc-400 text-xs sm:text-base max-w-xl mx-auto leading-relaxed">
-        Compara todas las ediciones oficiales en Soles peruanos y Dólares antes de comprar.
+        Compara ediciones estándar, DLCs y bundles oficiales en Soles y Dólares antes de comprar.
       </p>
     </section>
 
-    <!-- Buscador React (Se ejecuta 100% en el cliente) -->
+    <!-- Buscador React -->
     <section class="w-full">
       <SearchGames client:only="react" />
+    </section>
+
+    <!-- Ofertas Destacadas -->
+    <section class="w-full space-y-6 pt-6 border-t border-zinc-800/80">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="text-lg sm:text-xl font-bold text-white tracking-tight">
+            Ofertas destacadas del día
+          </h2>
+          <p class="text-xs text-zinc-400 mt-0.5">
+            Mayores descuentos disponibles en tiendas oficiales
+          </p>
+        </div>
+      </div>
+
+      <HomeDeals client:only="react" />
     </section>
 
   </main>

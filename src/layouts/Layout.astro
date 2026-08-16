@@ -9,9 +9,9 @@ interface Props {
   description?: string;
 }
 
-const { 
-  title = "La Yapa Gamer | Comparador de Precios y Ofertas",
-  description = "Compara precios oficiales de videojuegos en tiempo real."
+const {
+  title = "La Yapa Gamer | Comparador de Precios de Videojuegos",
+  description = "Compara precios de videojuegos en tiempo real entre Steam, Epic Games y distribuidores oficiales."
 } = Astro.props;
 ---
 
@@ -24,13 +24,23 @@ const {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
-  <body class="bg-[#09090b] text-zinc-100 min-h-screen flex flex-col antialiased">
+  <body class="bg-[#09090b] text-zinc-100 min-h-screen flex flex-col antialiased selection:bg-emerald-500 selection:text-black relative overflow-x-hidden">
     
-    <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-[#09090b]/90 border-b border-zinc-800/80">
+    <!-- Luces ambientales -->
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-emerald-500/10 blur-[140px] rounded-full pointer-events-none -z-10"></div>
+    <div class="fixed top-[45%] right-[-120px] w-[450px] h-[250px] bg-emerald-600/5 blur-[130px] rounded-full pointer-events-none -z-10"></div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-40 w-full backdrop-blur-xl bg-[#09090b]/80 border-b border-zinc-800/80">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <a href="/" class="flex items-center gap-2.5">
-          <img src="/logo.png" alt="Logo" class="h-8 w-auto rounded-md" onerror="this.style.display='none'" />
-          <span class="text-lg sm:text-xl font-black text-white">
+        <a href="/" class="flex items-center gap-2.5 group">
+          <img
+            src="/logo.png"
+            alt="La Yapa Gamer"
+            class="h-8 w-auto rounded-lg transition-transform group-hover:scale-105"
+            onerror="this.style.display='none'"
+          />
+          <span class="text-base sm:text-lg font-black text-white tracking-tight">
             LA YAPA <span class="text-emerald-400">GAMER</span>
           </span>
         </a>
@@ -39,10 +49,12 @@ const {
       </div>
     </header>
 
-    <div class="flex-1 w-full">
+    <!-- Contenido Principal -->
+    <div class="flex-1 w-full relative z-10">
       <slot />
     </div>
 
+    <!-- Footer -->
     <Footer />
   </body>
 </html>
